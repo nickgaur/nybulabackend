@@ -15,24 +15,25 @@
           <li><a href="/">Home</a></li>
           <li><a href="/appointments">Create an Appointment</a></li>
           <li><a href="/profile"><i class="fa-regular fa-user"></i> Profile</a></li>
+          <li ><a style="color:rgb(174, 25, 25)" href="/logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
         </ul>
 	</header>
 
     <div class="center">
         <h1>Edit Profile</h1>
-        <form>
+        <form method="post" action="/profile/edit?_method=PUT">
             <div class="txt_field">
-                <input type="text" name="name" required>
+                <input type="text" name="name" value="<%= currentUser.name %>" required>
                 <span></span>
                 <label>Name</label>
             </div>
             <div class="txt_field">
-                <input type="password" name="password" required>
+                <input type="password" name="password" value="<%= currentUser.password %>" required>
                 <span></span>
                 <label>Password</label>
             </div>
             <div class=" radio-edit">
-                <label>Status</label>
+                <label>Status:&nbsp;&nbsp;</label>
                 Active<input type="radio" name="status" value="true" required checked>
                 Inactive<input type="radio" name="status" value="false" required>
                 <span></span>

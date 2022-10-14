@@ -5,6 +5,7 @@ const express = require('express');
 const dbConfig = require('./db/config');
 const homeRoutes = require('./routes/home')
 const loginRoutes = require('./routes/login');
+var methodOverride = require('method-override')
 const profileRoutes = require('./routes/profile');
 const registerRoutes = require('./routes/register');
 const appointmentRoutes = require('./routes/appointments');
@@ -21,6 +22,7 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/public'));
+app.use(methodOverride('_method'))
 
 // const secret = process.env.SECRET;
 

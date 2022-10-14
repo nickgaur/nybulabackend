@@ -15,6 +15,7 @@
           <li><a href="/">Home</a></li>
           <li><a href="/appointments">Create an Appointment</a></li>
           <li><a href="/profile"><i class="fa-regular fa-user"></i> Profile</a></li>
+          <li ><a style="color:rgb(174, 25, 25)" href="/logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
         </ul>
 	</header>
 
@@ -27,7 +28,7 @@
         <h4><%= currentUser.status ? "ACTIVE" : "INACTIVE" %> </h4>
         <span>Email :</span> <span><%= currentUser.email %> </span><br>
         <span>Password :</span> <span>***********</span><br>
-        <a href="#" class="edit">Edit Profile</a>
+        <a href="/profile/edit" class="edit">Edit Profile</a>
       </div>
 </body>
 </html>
