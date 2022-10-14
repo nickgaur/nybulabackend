@@ -10,7 +10,7 @@ module.exports.renderHomepage = async (req, res) => {
         const helper = {};
         const foundAppointment = await Appointments.findById(appointment);
         const user = await User.findById(foundAppointment.guestUser);
-        console.log(user.name)
+        // console.log(user.name)
         helper.obj = foundAppointment;
         helper.name = user.name;
         appointmentsTaken.push(helper);

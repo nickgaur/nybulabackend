@@ -15,7 +15,7 @@ const path = require('path')
 const session = require('express-session');
 const MongoStore = require("connect-mongo");
 const app = express();
-const dbUrl = "mongodb://localhost:27017/nybula";     // FOR DEVELOPMENT MODE
+const dbUrl = process.env.DBURL || "mongodb://localhost:27017/nybula";     // FOR DEVELOPMENT MODE
 
 app.engine("ejs", ejsMate);
 app.set("view engine", "ejs");
@@ -27,7 +27,7 @@ app.use(methodOverride('_method'))
 // const secret = process.env.SECRET;
 
 app.use(session({
-  secret: "afdl;kkjlajflkfjlakj",
+  secret: process.env.SECRET,
   saveUninitialized: false,
   resave: false,
   store: MongoStore.create({
@@ -37,11 +37,6 @@ app.use(session({
     autoRemove: 'native',
   })
 }));
-
-// app.get('/', isAuthenticated, (req, res) => {
-
-//   res.status(201).render('index', );
-// })
 
 app.use('/', homeRoutes);
 app.use('/login', loginRoutes);
@@ -56,7 +51,7 @@ app.use('/profile', profileRoutes);
 app.use("*", (req, res) => {
   res.send("<h1>Page Not Found</h1>");
 })
-const port = 8000;
+const port = process.env.PORT || 8000;
 app.listen(port, () => {
   console.log("Server Started");
 })
