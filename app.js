@@ -4,8 +4,8 @@ if (process.env.NODE_ENV !== "production") {
 const express = require('express');
 const dbConfig = require('./db/config');
 const loginRoutes = require('./routes/login');
+const profileRoutes = require('./routes/profile');
 const registerRoutes = require('./routes/register');
-const profileRoutes = require('./routes/profileRoutes')
 const appointmentRoutes = require('./routes/appointments');
 const { isAuthenticated } = require('./middlewares/isAuthenticated');
 const ejsMate = require('ejs-mate');
@@ -45,7 +45,7 @@ app.get('/logout', (req, res) => {
 })
 app.use('/register', registerRoutes);
 app.use('/appointments', appointmentRoutes);
-app.use('/profile', profileRoutes)
+app.use('/profile', profileRoutes);
 
 app.use("*", (req, res) => {
   res.send("<h1>Page Not Found</h1>");

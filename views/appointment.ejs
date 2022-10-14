@@ -21,26 +21,31 @@
 
     <div class="center">
         <h1>New Appointment Details</h1>
-        <form>
+        <form method="post" action="/appointments">
             <div class="txt_field">
-                <input type="text" required>
+                <input type="text" name="title" required>
                 <span></span>
                 <label>Title</label>
             </div>
             <div class="txt_field">
-                <input type="text" required>
+                <input type="text" name="agenda" required>
                 <span></span>
                 <label>Agenda</label>
             </div>
             <div class="txt_field">
-                <input type="datetime-local" value="" required>
+                <input type="date" name="date" value="" required>
                 <span></span>
                 <!-- <label>Time</label> -->
             </div>
             <div class="txt_field">
-                <input type="text" required>
+                <input type="time" name="time" value="" required>
                 <span></span>
-                <label>Guest's Name</label>
+                <!-- <label>Time</label> -->
+            </div>
+            <div class="txt_field">
+                <input type="email" name="email" required>
+                <span></span>
+                <label>Guest's Email</label>
             </div>
             <input type="submit">
             <div class="signup_link">
