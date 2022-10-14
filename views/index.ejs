@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Appointment Schedule</title>
+    <title>Home</title>
 </head>
 <body>
     <header class="header">
@@ -21,5 +21,38 @@
   <section>
     <h1 class="upcoming">Upcoming Appointments</h1>
   </section>
+
+<div class="flex-container">
+  <% appointmentsTaken.map((appointment) => { %>
+    <div class="card">
+      <h1 class="title"><%= appointment.title %> </h1>
+      <hr>
+      <p class="agenda"><%= appointment.agenda %> </p>
+      <p><%= appointment.date %> <%= appointment.date %></p>
+      <p><%= appointment.guestUser %> </p>
+    </div>
+  <% }) %>
+  <!-- <div class="card">
+    <h1 class="title">Title</h1>
+    <hr>
+    <p class="agenda">Agenda</p>
+    <p>Time</p>
+    <p>Guest</p>
+  </div>
+  <div class="card">
+    <h1 class="title">Title</h1>
+    <hr>
+    <p class="agenda">Agenda</p>
+    <p>Time</p>
+    <p>Guest</p>
+  </div>
+  <div class="card">
+    <h1 class="title">Title</h1>
+    <hr>
+    <p class="agenda">Agenda</p>
+    <p>Time</p>
+    <p>Guest</p>
+  </div> -->
+</div>
 </body>
 </html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/css/updateProfile.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Update Profile</title>
+</head>
+<body>
+    <header class="header">
+		<h1 class="logo"><a href="#">Appointment Schedule</a></h1>
+        <ul class="main-nav">
+          <li><a href="/">Home</a></li>
+          <li><a href="/appointments">Create an Appointment</a></li>
+          <li><a href="/profile"><i class="fa-regular fa-user"></i> Profile</a></li>
+        </ul>
+	</header>
+
+    <div class="center">
+        <h1>Edit Profile</h1>
+        <form>
+            <div class="txt_field">
+                <input type="text" name="name" required>
+                <span></span>
+                <label>Name</label>
+            </div>
+            <div class="txt_field">
+                <input type="password" name="password" required>
+                <span></span>
+                <label>Password</label>
+            </div>
+            <div class=" radio-edit">
+                <label>Status</label>
+                Active<input type="radio" name="status" value="true" required checked>
+                Inactive<input type="radio" name="status" value="false" required>
+                <span></span>
+            </div>
+            <input type="submit">
+            <div class="signup_link">
+                <!-- You already have an account? Please <a href="#">Login Here</a> -->
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

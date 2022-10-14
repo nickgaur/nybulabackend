@@ -3,6 +3,7 @@ if (process.env.NODE_ENV !== "production") {
 }
 const express = require('express');
 const dbConfig = require('./db/config');
+const homeRoutes = require('./routes/home')
 const loginRoutes = require('./routes/login');
 const profileRoutes = require('./routes/profile');
 const registerRoutes = require('./routes/register');
@@ -35,9 +36,12 @@ app.use(session({
   })
 }));
 
-app.get('/', isAuthenticated, (req, res) => {
-  res.status(201).render('index');
-})
+// app.get('/', isAuthenticated, (req, res) => {
+
+//   res.status(201).render('index', );
+// })
+
+app.use('/', homeRoutes);
 app.use('/login', loginRoutes);
 app.get('/logout', (req, res) => {
   req.session.destroy();
