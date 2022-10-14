@@ -23,9 +23,9 @@
           <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" height="150" width="150">
           <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" height="150" width="150">
         </div>
-        <h2>Name</h2>
-        <h4>ACTIVE</h4>
-        <span>Email :</span> <span>abc@xyz.com</span><br>
+        <h2><%= currentUser.name.toUpperCase() %> </h2>
+        <h4><%= currentUser.status ? "ACTIVE" : "INACTIVE" %> </h4>
+        <span>Email :</span> <span><%= currentUser.email %> </span><br>
         <span>Password :</span> <span>***********</span><br>
         <a href="#" class="edit">Edit Profile</a>
       </div>

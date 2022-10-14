@@ -25,11 +25,11 @@
 <div class="flex-container">
   <% appointmentsTaken.map((appointment) => { %>
     <div class="card">
-      <h1 class="title"><%= appointment.title %> </h1>
+      <h1 class="title"><%= appointment.obj.title %> </h1>
       <hr>
-      <p class="agenda"><%= appointment.agenda %> </p>
-      <p><%= appointment.date %> <%= appointment.date %></p>
-      <p><%= appointment.guestUser %> </p>
+      <p class="agenda"><%= appointment.obj.agenda %> </p>
+      <p><%= appointment.obj.date %> <%= appointment.obj.time %></p>
+      <p><%= appointment.name %> </p>
     </div>
   <% }) %>
   <!-- <div class="card">
