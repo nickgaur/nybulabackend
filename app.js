@@ -5,6 +5,8 @@ const express = require('express');
 const dbConfig = require('./db/config');
 const loginRoutes = require('./routes/login');
 const registerRoutes = require('./routes/register');
+const profileRoutes = require('./routes/profileRoutes')
+const appointmentRoutes = require('./routes/appointments');
 const { isAuthenticated } = require('./middlewares/isAuthenticated');
 const ejsMate = require('ejs-mate');
 const path = require('path')
@@ -36,14 +38,18 @@ app.use(session({
 app.get('/', isAuthenticated, (req, res) => {
   res.status(201).render('index');
 })
-
 app.use('/login', loginRoutes);
 app.get('/logout', (req, res) => {
   req.session.destroy();
   res.redirect('/login');
 })
 app.use('/register', registerRoutes);
+app.use('/appointments', appointmentRoutes);
+app.use('/profile', profileRoutes)
 
+app.use("*", (req, res) => {
+  res.send("<h1>Page Not Found</h1>");
+})
 const port = 8000;
 app.listen(port, () => {
   console.log("Server Started");

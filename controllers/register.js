@@ -7,16 +7,9 @@ module.exports.renderRegisterPage = (req, res) => {
 module.exports.postRegisterForm = async (req, res) => {
     try {
         const { name, email, password } = req.body;
-        const isUserExist = await userModel.findOne({email});
-        if (!isUserExist) {
-            const newUser = new userModel({ name, email, password });
-            await newUser.save();
-            res.redirect('/login');
-        }
-        else {
-            console.log("User Already Exist");
-            res.redirect('/register');
-        }
+        const newUser = await userModel({ name, email, password });
+        await newUser.save();
+        res.redirect('/login');
     }
     catch (err) {
         console.log("User Already Exist");
