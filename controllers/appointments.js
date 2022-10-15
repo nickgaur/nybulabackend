@@ -15,7 +15,7 @@ module.exports.postAppointmentForm = async (req, res) => {
             const newAppointment = new Appointment(req.body);
             newAppointment.guestUser = gUser._id;
             newAppointment.author = req.session.userID;
-            currentUser.appointmentsGiven.push(newAppointment);
+            // currentUser.appointmentsGiven.push(newAppointment);
             currentUser.appointmentsTaken.push(newAppointment);
             gUser.appointmentsGiven.push(newAppointment);
             await newAppointment.save();
