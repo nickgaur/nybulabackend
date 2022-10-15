@@ -11,16 +11,21 @@ module.exports.postAppointmentForm = async (req, res) => {
         const gUser = await User.findOne({ email });
         const userID = req.session.userID;
         const currentUser = await User.findById(userID);
-        const newAppointment = new Appointment(req.body);
-        newAppointment.guestUser = gUser._id;
-        newAppointment.author = req.session.userID;
-        currentUser.appointmentsGiven.push(newAppointment);
-        currentUser.appointmentsTaken.push(newAppointment);
-        gUser.appointmentsGiven.push(newAppointment);
-        await newAppointment.save();
-        await currentUser.save();
-        await gUser.save();
-        res.redirect('/');
+        if(email !== currentUser.email && gUser && gUser.status){
+            const newAppointment = new Appointment(req.body);
+            newAppointment.guestUser = gUser._id;
+            newAppointment.author = req.session.userID;
+            currentUser.appointmentsGiven.push(newAppointment);
+            currentUser.appointmentsTaken.push(newAppointment);
+            gUser.appointmentsGiven.push(newAppointment);
+            await newAppointment.save();
+            await currentUser.save();
+            await gUser.save();
+            res.redirect('/');
+        }
+        else {
+            res.redirect("/appointments")
+        }
     }
     catch(err){
         res.redirect('/appointments');
